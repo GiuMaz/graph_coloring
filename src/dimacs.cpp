@@ -9,6 +9,75 @@
 
 using std::cout; using std::endl;
 
+// required for parse of compressed graph
+uint8_t masks[ 8 ] = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };
+
+bool parse_compressed_dimacs(std::ifstream &is,
+        std::map<int, std::vector<int> > &edges, int &total_nodes) {
+
+    // read the preamble, no fixed limit
+    int preamble_lenght;
+    is >> preamble_lenght;
+    if ( !is ) {
+        cout << "FAILED TO READ PREAMBLE" << endl;
+        return false;
+    }
+
+    total_nodes = -1;
+    edges.clear();
+    std::string line;
+    int total_edges;
+
+    while ( std::getline( is, line ) ) {
+        if (line.size() == 0 || line[0] == 'c') continue; // skip comment
+
+        std::string tmp1, tmp2;
+        std::istringstream iss(line);
+
+        iss >> tmp1 >> tmp2 >> total_nodes >> total_edges; 
+
+        if ( tmp1 != "p" || tmp2 != "edge" ) {
+            cout << "invalid header " << tmp1 << " " << tmp2 << endl;
+            return false;
+        }
+
+        cout << "nodes: " << total_nodes << " edges: " << total_edges << endl;
+        break;
+    }
+
+    uint8_t byte;
+    std::vector<std::vector<uint8_t> > input_bytes(total_nodes,
+            std::vector<uint8_t>(total_nodes,0));
+
+    for ( int i = 0; i < total_nodes; ++i ) {
+        for ( int j = 0 ; j < ((i/8)+1); ++j ) {
+            is >> std::noskipws >> byte;
+            if ( ! is ) {
+                goto end;
+            }
+            input_bytes[i][j] =  byte;
+        }
+    }
+end:
+
+    int edge_counter = 0;
+    int non_edge_counter = 0;
+    for (int i = 0; i < total_nodes; i++) {
+        for (int j = 0; j < total_nodes; j++) {
+            int from = std::max(j,i);
+            int to   = std::min(j,i);
+            uint8_t mask = masks[7-(to & 0x07)];
+            if ( (input_bytes[from][to/8] & mask) == mask ) {
+                ++edge_counter;
+                edges[j].push_back(i);
+            }
+            else
+                non_edge_counter++;
+        }
+    }
+    return true;
+}
+
 bool parse_graph_dimacs(std::ifstream &is,
         std::map<int, std::vector<int> > &edges, int &total_nodes) {
 
@@ -68,7 +137,7 @@ int main(int argc, char* argv[]) {
     int total_nodes;
     std::map<int, std::vector<int> > edges;
 
-    if ( ! parse_graph_dimacs(is, edges, total_nodes) ) {
+    if ( ! parse_compressed_dimacs(is, edges, total_nodes) ) {
         cout << "failed parsing of " << argv[1] << endl;
         return 1;
     }

@@ -49,7 +49,8 @@ private:
 
         SearchData( size_t n ):
             active(n,true), active_counter(n),
-            nodes_stack(), avail(n, ShrinkingSet(1,n)) {
+            nodes_stack(), avail(n, ShrinkingSet(1,n)),
+            degrees(n,0) {
                 nodes_stack.reserve(n);
             }
 
@@ -57,6 +58,25 @@ private:
         unsigned int active_counter;
         std::vector<int> nodes_stack;
         std::vector<ShrinkingSet> avail;
+        std::vector<node_t> degrees;
+
+        size_t get_stack_mark() const { return nodes_stack.size(); }
+
+        void undo_stack(size_t mark) { 
+            while ( nodes_stack.size() > mark ) {
+                active[nodes_stack.back()] = true;
+                nodes_stack.pop_back();
+                ++active_counter;
+            }
+        }
+
+        void push_node(Graph::node_t n) {
+            if ( active[n] ) {
+                nodes_stack.push_back(n);
+                active[n] = false;
+                --active_counter;
+            }
+        }
     };
 
     color_t get_approximate_coloring(SearchData &g);

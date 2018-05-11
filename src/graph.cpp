@@ -153,32 +153,44 @@ Graph::Clique
 Graph::maximum_clique_rec( SearchData &sd, Clique c, Clique best,
         size_t upper_bound ) {
 
-    // std::cout << sd.active_counter << " " << c.size()
-    // << " " << best.size) << " " << upper_bound << std::endl;
+    // = tmp assert =
+    size_t check_counter = 0;
+    for ( auto i : sd.active ) if (i) check_counter++;
+    assert( check_counter == sd.active_counter );
+    // ==============
+
+    //std::cout << sd.active_counter << " " << c.size() << " " << 
+    //    (c.empty()? -1 : c.back())
+    //    << " " << best.size() << " " << upper_bound << std::endl;
+
+    auto stack_base = sd.get_stack_mark();
     bool removed_some_nodes;
-    int chromatic_number_approx;
     do {
         removed_some_nodes = false;
         // if Empty exit
-        if ( sd.active_counter == 0 ) return c;
+        if ( sd.active_counter == 0 ) {
+            sd.undo_stack(stack_base);
+            return c;
+        }
 
         // calcolate approximate coloring
-        chromatic_number_approx = get_approximate_coloring( sd );
+        auto chromatic_number_approx = get_approximate_coloring( sd );
 
         // get upper bound
         upper_bound = std::min(upper_bound, c.size() + chromatic_number_approx);
 
         // if upperbound is lower than best, finish
-        if ( upper_bound <= best.size() ) return best;
+        if ( upper_bound <= best.size() ) {
+            sd.undo_stack(stack_base);
+            return best;
+        }
 
         // Coudert heuristic
         for( size_t i = 0; i < nodes; i++ ) {
             if ( ! sd.active[i] ) continue;
             if ( sd.avail[i].size() >
                     (c.size() - best.size() + chromatic_number_approx) ) {
-                sd.nodes_stack.push_back(i);
-                sd.active[i] = false;
-                sd.active_counter--;
+                sd.push_node(i);
                 removed_some_nodes = true;
             }
         }
@@ -188,7 +200,7 @@ Graph::maximum_clique_rec( SearchData &sd, Clique c, Clique best,
     // get a maximum degrees vertex
     vector<Graph::node_t> sorted(nodes,0);
     get_sorted_node(sorted);
-    size_t v;
+    size_t v = -1;
     for( int i = nodes-1; i >= 0; i-- ) {
         if ( sd.active[i] ) {
             v = i;
@@ -197,15 +209,12 @@ Graph::maximum_clique_rec( SearchData &sd, Clique c, Clique best,
     }
 
     // get the subgraph induced by the neighbourn of the vertex
-    size_t stack_base = sd.nodes_stack.size();
+    auto   neigbourn_base = sd.get_stack_mark();
 
-    for( size_t i = 0; i < nodes; i++ ) {
-        if ( sd.active[i] && !adjacency_matrix.get(v, i) ) {
-            sd.nodes_stack.push_back(i);
-            sd.active[i] = false;
-            --sd.active_counter;
-        }
-    }
+    for( size_t i = 0; i < nodes; i++ )
+        if ( !adjacency_matrix.get(v, i) )
+            sd.push_node(i);
+
     c.push_back(v);
 
     // try to solve the problem with only the neibourn and the vertex in the
@@ -213,29 +222,27 @@ Graph::maximum_clique_rec( SearchData &sd, Clique c, Clique best,
     best = maximum_clique_rec(sd, c, best, upper_bound);
 
     // undo the change
-    for ( size_t i = sd.nodes_stack.size(); i > stack_base; --i ) {
-        sd.active[sd.nodes_stack.back()] = true;
-        ++sd.active_counter;
-        sd.nodes_stack.pop_back();
-    }
+    sd.undo_stack(neigbourn_base);
+
     c.pop_back();
 
     // if the best found is equal to the upper, return
-    if ( upper_bound == best.size() ) return best;
+    if ( upper_bound == best.size() ) {
+        sd.undo_stack(stack_base);
+        return best;
+    }
 
     // remove the vertex from the graph
-    sd.nodes_stack.push_back(v);
-    sd.active[v] = false;
-    --sd.active_counter;
+    auto single_base = sd.get_stack_mark();
+    sd.push_node(v);
 
     // return a recursive call without the vertex
     best = maximum_clique_rec(sd,c, best, upper_bound);
 
     // undo change
-    sd.nodes_stack.pop_back();
-    sd.active[v] = true;
-    ++sd.active_counter;
+    sd.undo_stack(single_base);
 
+    sd.undo_stack(stack_base);
     return best;
 }
 

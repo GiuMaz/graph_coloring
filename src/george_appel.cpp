@@ -83,6 +83,7 @@ int main( /*int argc, char* argv[] */ ) {
     int counter = 0;
     while ( parse_graph(is, graph_number, k, edges, total_nodes) && counter++ < 100000 ) {
 
+        if (graph_number != 311) continue;
         if ( total_nodes < 22 ) total_nodes = 21;
 
         Graph g(total_nodes + 1);
@@ -103,6 +104,7 @@ int main( /*int argc, char* argv[] */ ) {
         int chromatic_number_sequen = g.sequential_coloring(colors);
         if ( ! g.check_coloration(colors) )
             cout << "invalid sequantial coloration for graph " << graph_number << endl;
+        cout << "graph " << graph_number << " colors " << chromatic_number_sequen << endl;
         //int chromatic_number_sequen = chromatic_number_approx;
 
         if ( chromatic_number_approx < chromatic_number_sequen )
@@ -113,7 +115,7 @@ int main( /*int argc, char* argv[] */ ) {
 //                chromatic_number_sequen << endl;
         if ( chromatic_number_approx == chromatic_number_sequen )
             ++correcty_approx;
-            //cout << "PERFETCT APPROX on graph " << graph_number << endl;
+            //cout << "PERFECT APPROX on graph " << graph_number << endl;
 
         total_graph++;
         bigger_graph = std::max(total_nodes, bigger_graph);
