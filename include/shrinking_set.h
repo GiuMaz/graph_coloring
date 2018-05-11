@@ -16,6 +16,22 @@ public:
     void print_status(const std::string &extra_message) const;
     void print_status() const { print_status(""); }
     void add_value(size_type x);
+    void clear() { data.clear(); counter = 0; }
+    void reduce_to(size_type x) {
+        auto last_interval = *data.begin();
+
+        if ( last_interval.high <= x )
+            return;
+
+        counter-= (last_interval.high-last_interval.low+1);
+        data.erase(data.begin());
+
+        if ( last_interval.low <= x ) {
+            last_interval.high = x;
+            data.insert(last_interval);
+            counter+= (last_interval.high-last_interval.low+1);
+        }
+    }
 
 private:
     struct Interval { // DISJOINT interval [low-high]
@@ -52,7 +68,7 @@ inline void ShrinkingSet::print_status(const std::string &extra_message) const {
     std::cout << std::endl << std::endl;
 }
 
-inline void ShrinkingSet::add_value( size_type x) {
+inline void ShrinkingSet::add_value(size_type x) {
     size_type begin = x, end = x;
 
     auto it = data.lower_bound({x,0});

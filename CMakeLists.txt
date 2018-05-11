@@ -14,3 +14,6 @@ target_link_libraries(shrink_test PRIVATE graph)
 add_executable(george_appel src/george_appel.cpp)
 target_link_libraries(george_appel PRIVATE graph)
 
+add_executable(dimacs src/dimacs.cpp)
+target_link_libraries(dimacs PRIVATE graph)
+

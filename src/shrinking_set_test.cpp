@@ -18,6 +18,16 @@ int main( /* int argc, char *argv[] */ ) {
     s.add_value(22);
     s.print_status("AFTER INSERTION");
 
+    s.reduce_to(22);
+    s.print_status("REDUCE TO 22");
+    s.reduce_to(21);
+    s.print_status("REDUCE TO 21");
+    s.reduce_to(20);
+    s.print_status("REDUCE TO 20");
+    s.reduce_to(8);
+    s.print_status("REDUCE TO 8");
+
+
     cout << "POP ALL MINIMAL VALUE\n\t";
     while ( s.size() > 0 ) {
         cout << s.select_min() << " ";
