@@ -1,0 +1,101 @@
+% This is the latex source of the appendix for
+% Coloring Papers. 
+% 
+% This may be edited later to report a standardized
+% result.  For now, just include your raw data.
+%
+\documentstyle{article}
+\topmargin 0pt
+\advance \topmargin by -\headheight
+\advance \topmargin by -\headsep
+     
+\textheight 8.9in
+     
+\oddsidemargin 0pt
+\evensidemargin \oddsidemargin
+\marginparwidth 0.5in
+     
+\textwidth 6.5in
+\begin{document}
+\centerline{\bf Second DIMACS Challenge}
+\centerline{Coloring Benchmark Results}
+\noindent{\it GENERAL INFORMATION}
+{\it Authors: }    \par
+{\it Title: }      \par
+{\it Name of Algorithm: }       \par
+%        The brief description should be just a few words, but should
+%        begin with whether your algorithm is exact or heuristic.  Examples:
+%        Exact: polyhedral cutting approach
+%        Heuristic: simulated annealing with restart
+{\it Brief Description of Algorithm: } \par
+
+\bigskip
+\noindent{\it Type of Machine: } \par
+\noindent{\it Compiler and flags used: } \par
+
+\bigskip
+\noindent{\it MACHINE BENCHMARKS}
+
+{\it User time for instances:}
+
+\begin{center}
+\begin{tabular}{rrrrr}\hline
+{\tt r100.5}&{\tt r200.5}&{\tt r300.5}&{\tt r400.5}&{\tt
+  r500.5}\\
+%Times for five clique instances in machine benchmark here.
+%If not run, leave blank
+   &   &   &  &   \\\hline
+\end{tabular}
+\end{center}
+
+\bigskip
+\noindent{\it ALGORITHM BENCHMARKS}
+
+{\it Authors' Comments:}
+\newpage
+
+{\it Results on Benchmark Instances}
+
+%
+% Please see the file instruct.tex for specific information
+% on filling out this table
+%
+\begin{tabular}[htbp]{c|c|ccc|ccc}
+  &    &\multicolumn{3}{c|}{Time}&\multicolumn{3}{c}{Solution}\\
+Name       &Runs (Fail)&Min&Avg (Std. Dev.)&Max&Min&Avg (Std. Dev.)&Max\\\hline
+{\tt DSJC125.5.col}& & & & & & & \\
+{\tt DSJC250.5.col}& & & & & & & \\
+{\tt DSJC500.5.col}& & & & & & & \\
+{\tt DSJC1000.5.col}& & & & & & & \\
+{\tt C2000.5.col}& & & & & & & \\
+{\tt C4000.5.col}& & & & & & & \\
+{\tt R125.1.col}& & & & & & & \\
+{\tt R125.1c.col}& & & & & & & \\
+{\tt R125.5.col}& & & & & & & \\
+{\tt R250.1.col}& & & & & & & \\
+{\tt R250.1c.col}& & & & & & & \\
+{\tt R250.5.col}& & & & & & & \\
+{\tt DSJR500.1.col}& & & & & & & \\
+{\tt DSJR500.1c.col}& & & & & & & \\
+{\tt DSJR500.5.col}& & & & & & & \\
+{\tt R1000.1.col}& & & & & & & \\
+{\tt R1000.1c.col}& & & & & & & \\
+{\tt R1000.5.col}& & & & & & & \\
+{\tt flat300\_20\_0.col}& & & & & & & \\
+{\tt flat300\_26\_0.col}& & & & & & & \\
+{\tt flat300\_28\_0.col}& & & & & & & \\
+{\tt flat1000\_50\_0.col}& & & & & & & \\
+{\tt flat1000\_60\_0.col}& & & & & & & \\
+{\tt flat1000\_76\_0.col}& & & & & & & \\
+{\tt latin\_square\_10.col}& & & & & & & \\
+{\tt le450\_15a.col}& & & & & & & \\
+{\tt le450\_15b.col}& & & & & & & \\
+{\tt le450\_15c.col}& & & & & & & \\
+{\tt le450\_15d.col}& & & & & & & \\
+{\tt mulsol.i.1.col}& & & & & & & \\
+{\tt school1.col}& & & & & & & \\
+{\tt school1\_nsh.col}& & & & & & & \\
+\end{tabular}
+
+
+\end{document}

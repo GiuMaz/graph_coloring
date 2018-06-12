@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /pub/challenge/graph/benchmarks/clique/SOLUTIONS</title>
+ </head>
+ <body>
+<h1>Index of /pub/challenge/graph/benchmarks/clique/SOLUTIONS</h1>
+  <table>
+   <tr><th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=A">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[PARENTDIR]"></td><td><a href="/pub/challenge/graph/benchmarks/clique/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="p_hat500-2.sol">p_hat500-2.sol</a></td><td align="right">1993-09-19 11:02  </td><td align="right">694 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="p_hat500-1.sol">p_hat500-1.sol</a></td><td align="right">1993-09-19 11:02  </td><td align="right">343 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="p_hat300-3.sol">p_hat300-3.sol</a></td><td align="right">1993-09-19 11:02  </td><td align="right">694 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="p_hat300-2.sol">p_hat300-2.sol</a></td><td align="right">1993-09-19 11:02  </td><td align="right">551 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="p_hat300-1.sol">p_hat300-1.sol</a></td><td align="right">1993-09-19 11:02  </td><td align="right">330 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="keller4.sol">keller4.sol</a></td><td align="right">1993-09-19 11:02  </td><td align="right">363 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="hamming8-4.sol">hamming8-4.sol</a></td><td align="right">1993-09-19 11:02  </td><td align="right">434 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="c-fat500-2.sol">c-fat500-2.sol</a></td><td align="right">1993-09-19 11:02  </td><td align="right">564 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="san200_0.9_3.sol">san200_0.9_3.sol</a></td><td align="right">1993-08-23 07:34  </td><td align="right">802 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="san200_0.9_2.sol">san200_0.9_2.sol</a></td><td align="right">1993-08-23 07:34  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="san200_0.9_1.sol">san200_0.9_1.sol</a></td><td align="right">1993-08-23 07:34  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="san200_0.7_1.sol">san200_0.7_1.sol</a></td><td align="right">1993-08-23 07:34  </td><td align="right">620 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="san2.sol">san2.sol</a></td><td align="right">1993-08-23 07:34  </td><td align="right">400 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="sanr200_0.7.sol">sanr200_0.7.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">462 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="johnson8-4-4.sol">johnson8-4-4.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">412 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="johnson8-2-4.sol">johnson8-2-4.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">282 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="johnson16-2-4.sol">johnson16-2-4.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">336 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="hamming8-2.sol">hamming8-2.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">1.8K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="hamming6-4.sol">hamming6-4.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">278 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="hamming6-2.sol">hamming6-2.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">636 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="hamming10-2.sol">hamming10-2.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">6.7K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="c-fat500-5.sol">c-fat500-5.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="c-fat500-10.sol">c-fat500-10.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">1.8K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="c-fat500-1.sol">c-fat500-1.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">402 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="c-fat200-5.sol">c-fat200-5.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">1.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="c-fat200-2.sol">c-fat200-2.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">532 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="/icons/unknown.gif" alt="[   ]"></td><td><a href="c-fat200-1.sol">c-fat200-1.sol</a></td><td align="right">1993-08-23 07:29  </td><td align="right">382 </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.10 (Debian) Server at dimacs.rutgers.edu Port 443</address>
+</body></html>

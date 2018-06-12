@@ -1,0 +1,9 @@
+c simple test graph
+p edge 5 8
+e 1 2
+e 1 3
+e 3 2
+e 1 4
+e 5 1
+e 5 4
+e 4 1

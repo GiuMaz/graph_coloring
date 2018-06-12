@@ -1,0 +1,152 @@
+This is TeX, C Version 3.141 (format=lplain 93.7.13)  20 SEP 1993 14:58
+**contents
+(contents.tex
+LaTeX Version 2.09 <25 March 1992>
+(/usr/local/lib/tex/macros/article.sty
+Standard Document Style `article' <14 Jan 92>.
+(/usr/local/lib/tex/macros/art12.sty)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+) (supertab.sty
+\maxsize=\dimen99
+\actsize=\dimen100
+\twocolsize=\dimen101
+\parboxheight=\dimen102
+\addspace=\dimen103
+\midlineheight=\dimen104
+\pargcorrection=\dimen105
+\computedimens=\dimen106
+\tabparbox=\box25
+\tabularwidth=\dimen107
+) (contents.aux) [1
+
+]
+[2
+
+]
+Overfull \hbox (6.00214pt too wide) in paragraph at lines 83--89
+[] []\cmr/m/n/12 (From Panos Parda-los \cmtt/m/n/12 pardalos@math.uflorida.edu\
+cmr/m/n/12 ) Prob-lems based
+
+\hbox(9.0+3.0)x360.6253, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(8.23334+0.0)x5.42386
+..\glue -29.3747
+..\glue 0.0
+..\glue -5.87494
+..\hbox(8.23334+0.0)x34.79855
+...\glue 5.87494
+...\cmr/bx/n/12 C
+...\cmr/bx/n/12 F
+...\kern-1.125
+...\cmr/bx/n/12 a
+...etc.
+..\glue 5.87494
+.\penalty 0
+.\cmr/m/n/12 (
+.etc.
+
+
+Overfull \hbox (27.04243pt too wide) in paragraph at lines 83--89
+\cmr/m/n/12 (1990). For more in-stances, see the gen-er-a-tor in graph/contribu
+ted/pardalos. 
+
+\hbox(9.0+3.0)x360.6253, glue set - 1.0
+.\cmr/m/n/12 (
+.\cmr/m/n/12 1
+.\cmr/m/n/12 9
+.\cmr/m/n/12 9
+.\cmr/m/n/12 0
+.etc.
+
+
+Overfull \hbox (5.70978pt too wide) in paragraph at lines 98--105
+\cmr/m/n/12 graph/contributed/shor or the gen-er-a-tor in graph/contributed/par
+dalos. 
+
+\hbox(9.0+3.0)x360.6253, glue set - 1.0
+.\cmr/m/n/12 g
+.\cmr/m/n/12 r
+.\cmr/m/n/12 a
+.\cmr/m/n/12 p
+.\cmr/m/n/12 h
+.etc.
+
+
+Overfull \hbox (21.82027pt too wide) in paragraph at lines 106--112
+\cmr/m/n/12 apart. For more in-stances, see the gen-er-a-tor in graph/contribut
+ed/pardalos. 
+
+\hbox(9.0+3.0)x360.6253, glue set - 1.0
+.\cmr/m/n/12 a
+.\cmr/m/n/12 p
+.\cmr/m/n/12 a
+.\cmr/m/n/12 r
+.\cmr/m/n/12 t
+.etc.
+
+[3
+
+]
+Overfull \hbox (1.89615pt too wide) in paragraph at lines 123--128
+[] []\cmr/m/n/12 (From Mark Brock-ing-ton \cmtt/m/n/12 brock@cs.ualberta.ca\cmr
+/m/n/12 ) In-stances from Mark
+
+\hbox(9.0+3.0)x360.6253, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(8.23334+0.0)x-1.63863
+..\glue -29.3747
+..\glue 0.0
+..\glue -5.87494
+..\hbox(8.23334+0.0)x27.73607
+...\glue 5.87494
+...\cmr/bx/n/12 B
+...\cmr/bx/n/12 r
+...\cmr/bx/n/12 o
+..\glue 5.87494
+.\penalty 0
+.\cmr/m/n/12 (
+.etc.
+
+
+Overfull \hbox (25.51295pt too wide) in paragraph at lines 129--138
+[] []\cmr/m/n/12 (From Patrick So-ri-ano and Michel Gen-dreau \cmtt/m/n/12 patr
+ick@crt.umontreal.ca\cmr/m/n/12 )
+
+\hbox(9.0+3.0)x360.6253, glue set - 1.0
+.\hbox(0.0+0.0)x0.0
+.\glue 0.0
+.\hbox(8.23334+0.0)x8.09055
+..\glue -29.3747
+..\glue 0.0
+..\glue -5.87494
+..\hbox(8.23334+0.0)x37.46524
+...\glue 5.87494
+...\cmr/bx/n/12 P
+...\cmr/bx/n/12 H
+...\cmr/bx/n/12 a
+...\cmr/bx/n/12 t
+..\glue 5.87494
+.\penalty 0
+.\cmr/m/n/12 (
+.etc.
+
+[4] (contents.aux) ) 
+Here is how much of TeX's memory you used:
+ 221 strings out of 11822
+ 2224 string characters out of 80863
+ 35639 words of memory out of 262141
+ 2315 multiletter control sequences out of 9500
+ 18987 words of font info for 72 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 16i,7n,15p,149b,173s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on contents.dvi (4 pages, 15744 bytes).

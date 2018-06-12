@@ -1,0 +1,258 @@
+\documentstyle[12pt]{article}
+\title{Creating the Benchmark Appendix\\(Instructions to DIMACS
+  Challenge Authors)}
+\date{December 14, 1993}
+\author{Michael A. Trick}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+In order to make the volume of the Second DIMACS Challenge a bit more
+integrated, we (the editors: David Johnson and Michael Trick) thought
+it would be a good idea to have a standard appendix to each paper.
+This appendix would be the results of running an algorithm on a small
+number of instances.  This appendix would be snapshot of the
+algorithm's effectiveness.
+
+{\it This appendix is not meant to take the place of, or be a
+  suggested design for, the computational experiments that will make
+  up the bulk of many Challenge papers.}
+
+This document outlines the rules for creating this appendix.
+
+\section{Method for Giving Results}
+
+There are two main aspects of the test:  benchmarking the machine and
+compiler and running the test instances.
+
+\subsection{Machine Benchmarks:}  Since Challenge participants are
+using different machines and compilers, we would like to get a rough
+measure on how fast each machine is.  To do this, all participants
+will run a clique finding routine on five instances.  The assumption
+is that the mix of instructions in this clique finding routine is
+approximately equal to the mix in most combinatorial optimization
+problems, so results with this code will provide a single ``machine
+multiplier'' that can be compared between machines.  If you have
+reason to believe that such an assumption is inappropriate for your
+work (for instance, an algorithm that calls many trigonometric
+functions would behave differently), please let us know so we can
+arrange something specific for your work.
+
+The code and instances are available in the dimacs ftp site in the
+
+{\tt pub/challenge/graph/benchmarks/volume/Machine} 
+\noindent and 
+
+{\tt pub/challenge/sat/benchmarks/volume/Machine} 
+
+\noindent directories (same code in each).  There is a ``Makefile'' to
+edit to give the compiler and flags used in the rest of the test.
+With some luck, typing ``make'' and waiting a while will compile the
+program and run the program on the five benchmark instances.  Simply
+place the resulting ``User times'' in the appendix in the appropriate
+place.
+
+If you are not running under Unix, or if the ``make'' does not work,
+please try to identify the cause of the difficulty.  The ``make''
+simply compiles the program ``dfmax'' and runs it on the five
+instances.  If you cannot solve the difficulties, please contact us so
+that we can help.
+
+\subsection{Code Benchmarks}
+
+The heart of the appendix is the results on the instances.  The
+instances are in the 
+
+\noindent{\tt pub/challenge/graph/benchmarks/volume} and
+
+\noindent{\tt pub/challenge/sat/benchmarks/volume} directories.  
+
+There is also a form for filling out the results (called {\tt
+  Appendix.tex}).  Each line in the appendix gives the result on a
+single instance.  The form of the line is as follows (for Graph
+Problems):
+
+\begin{tabular}[htbp]{cc|ccc|ccc}
+  &    &\multicolumn{3}{c|}{Time}&\multicolumn{3}{c}{Solution}\\
+Name&Runs (Fail)&Min&Avg (Std. Dev.)&Max&Min&Avg (Std. Dev.)&Max\\\hline
+SMALL&10&2.1&4.4 (1.6)&6.2&14&15.5 (4.3)&17\\
+LARGE&10&201.2&307.4(14.6)&1600&22&45.2(9.4)&47\\
+\end{tabular}
+
+\medskip
+
+The following holds for Satisfiability Problems:
+
+\begin{tabular}[htbp]{cc|ccc|c}
+  &    &\multicolumn{3}{c}{Time}&\\
+Name&Runs (Fail)&Min&Avg (Std. Dev.)&Max&Result\\\hline
+SMALL&10&2.1&4.4 (3.9)&6.2&YES\\
+LARGE&10 (3)&201.2&307.4 (4.6)&1600&YES\\
+\end{tabular}
+
+The ``Runs'' column is the number of runs used in the test.  This
+holds only for algorithms with some random aspect.  Algorithms that
+are completely deterministic will only have one run, and will use the
+Average column to report their results.  Algorithms with a random
+aspect (even if it is just due to the order in which the data is
+presented) should choose an appropriate number of runs (amount depends
+on the time required for each run) to give some idea of the range of
+results that might be expected.
+
+In the case where multiple runs are used, four values are reported for
+the solution times: the minimum time needed, the maximum time needed,
+the average ($\sum x_i/n$ for $n$ runs and results $x_i$), and the
+standard deviation ($\sqrt{\sum(x_i-\bar{x})^2/(n-1)}$).  If only a
+single run is used, the single timing should be placed under
+``Average''.  If one or more runs fails due to lack of time, report
+the number of failures under the ``Runs'', give the maximum time
+permitted in the Authors' comments, and {\it do not} include the
+timings of the failed runs in the results.
+
+To report the solution, there are two types of results:
+
+\begin{enumerate}
+\item Numerical Results (Size of Clique, Number of Colors, Number of
+  Constraints Satisfied).  The value is reported.  If multiple runs,
+  the minimum, maximum, average, and standard deviation are reported.
+
+\item Success or Failure (Satisfiability of formulae).  One of three
+  results is given:  Yes, No, or ``?''.  If multiple runs, the number
+  of times the ``true'' value was found is included in parentheses.
+\end{enumerate}
+
+\section{Other Instructions}
+
+Our goal is to get a good comparison of the various approaches, not to
+do a race.  To this end, there are some aspects that may be bit vague.
+If you have any doubts, please do not hesitate to contact me.  Here
+are some miscellaneous points that may help:
+
+\begin{enumerate}
+\item Parameter Setting.  It is not necessary to choose only one
+  parameter setting throughout this test.  It is necessary, however,
+  that the choice of parameter settings used be formalized to level
+  that a computer program might be written to choose the parameters
+  (though the program itself need not be written).  If such a program
+  would take a significant amount of time, the time needed to set the
+  parameters should be included in the timings.
+
+\item Input and Output.  For some of the larger problems, the time
+  needed to read the problem may be significant.  Please do not
+  exclude the time required to read the DIMACS standard input,
+
+\item Computer load.  For most accurate readings, it is best to do
+  these timings on a relatively unused machine.  In all cases, report
+  the time actually used by the program; try not to include times used
+  by other processes.
+
+\item Difficulty of problems.  The test is divided only by problem
+  type: not by type of algorithm.  Therefore, there are some instances
+  in each test set that are far too large to be solved exactly (they
+  are meant as a challenge for the heuristic solvers).  Do not
+  hesitate to report simply ``DNR'' (Did not run) for any instance
+  that is unreasonable for you.
+
+\item Author Comments.  If there is any aspect of the instances that
+  you feel misrepresent your algorithm, feel free to provide a short
+  comment in the Authors' Comments section of the report.
+\end{enumerate}
+
+\section{Outline of Instances}
+
+\subsection{Coloring}
+
+The instances will be:
+
+\begin{itemize}
+\item Register Allocation: {\tt mulsol.i.1.col}
+
+\item Leighton Graphs: {\tt le450\_15x.col} Four 450 node instances.
+
+\item Modified $k$-partite graphs: {\tt flat1000x.col} and {\tt
+    flat300x.col}. Three 1000 node, three 300 node instances.
+
+\item School graphs: {\tt school1} and {\tt school1\_nsh}.  Two approx
+  350 node instances.
+
+\item Latin Square graph. {\tt latin}. One 900 node instance.
+
+\item Geometric Graphs.  {\tt Rx.y[c]} and {\tt DSJRx.y[c]}.  Three
+  instances of each of 125, 250, 500, and 1000 node instances: one
+  with edge if length $<$ .1, one with edge if length $>$ .9, one with
+  edge if length $<$ .5.  Twelve instances.
+
+\item Random Graphs.  {\tt Cx.y} and {\tt DSJCx.y}.  One instance each
+  of 125, 250, 500, 1000, 2000, and 4000 nodes, all density .5.  Six
+  instances.  Note that these graphs overlap with (and are identical
+  to) some of the clique graphs.
+\end{itemize}
+
+Total: 32 instances
+
+\subsection{Clique}
+
+\begin{itemize}
+\item Keller Graphs.  Keller 4, 5, and 6.  Three instances of size
+  171, 776, and 3361 nodes.
+
+\item Sanchis graphs.  {\tt gen200\_0.9x} and {\tt gen400\_0.9x}.
+  Two 200 node and three four hundred node instances. Five instances.
+
+\item Hamming graphs.  {\tt hamming 8-4} and {\tt hamming10-4}.  one
+  256 node and one 1024 node instance. Two instances
+
+\item P--hat Graphs.  {\tt p\_hat300x}, {\tt p\_hat700x}, and {\tt
+    p\_hat1500x}.  Three 300 node, three 700 node, and three 1500 node
+  instances. Nine instances.
+
+\item Brockington Graphs. {\tt brockx00\_2 and brockx00\_4}.  Two each
+  of 200, 400, and 800 node instances. Six Instances.
+
+\item Steiner Triple Graphs. {\tt MANNx} (except for {\tt MANN9}).
+  One 378, one 1035, and one 3321 node instances.
+
+\item Random Graphs.  {\tt Cx.y} and {\tt DSJCx.y}. Graphs of size
+  125, 250, 500, 1000, and 2000 with density .90 and 500, 1000, 2000,
+  and 4000 with density .5. Nine instances.  Note that these graphs
+  overlap with (and are identical to) some of the coloring graphs.
+
+\end{itemize}
+
+Total: 37 instances
+
+
+\subsection{Satisfiability}
+
+\begin{itemize}
+\item AIM graphs. {\tt aim-100-2\_0x}.  Eight instances (4 sat, 4 not
+  sat), 100 variables.
+
+\item Circuit Fault. {\tt ssa7552x}, {\tt ssa0432-003, ssa2670-141,
+    bf0432-007, bf2670-001}. Four instances, 1400 variables (4
+  sat), 435, 936, 1040, 1393 variables  (4 not sat).
+
+\item Resende. {\tt ii32x3}.  Four instances, 300 variables (4 sat).
+
+\item Pretolani. {\tt pret60\_25, pret60\_75, pret150\_25,
+    pret150\_75}. Two instances, 60 variables, 2 instances 150
+  variables (4 not sat).
+
+\item Parity Problems. {\tt par-x-2-c} and {\tt par-x-4-c}.  6
+  instances, sizes from 68 to 1333 variables. (6 sat)
+
+\item Graph Coloring Problems. {\tt gx.x}. 4 instances, 2000--7000
+  variables (4 sat).
+
+\item Dubois Problems {\tt dubois20--21}. 2 instances, 60 and 63 
+  variables, (2 not sat).
+
+\item Large Random.  {\tt fx}. (Use 4.25 clauses per variable).  400,
+  800, 1600, 3200 and 6400 variables. (5 sat)
+
+\end{itemize}
+
+Total: 41 instances
+
+\end{document}
+
