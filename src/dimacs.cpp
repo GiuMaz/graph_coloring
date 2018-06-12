@@ -137,7 +137,14 @@ int main(int argc, char* argv[]) {
     int total_nodes;
     std::map<int, std::vector<int> > edges;
 
-    if ( ! parse_compressed_dimacs(is, edges, total_nodes) ) {
+    decltype(parse_compressed_dimacs) *parser;
+    auto file = std::string(argv[1]);
+    if ( file.back() == 'b' )
+        parser = parse_compressed_dimacs;
+    else
+        parser = parse_graph_dimacs;
+
+    if ( ! parser(is, edges, total_nodes) ) {
         cout << "failed parsing of " << argv[1] << endl;
         return 1;
     }

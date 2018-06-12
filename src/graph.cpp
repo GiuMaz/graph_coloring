@@ -153,18 +153,12 @@ Graph::Clique
 Graph::maximum_clique_rec( SearchData &sd, Clique c, Clique best,
         size_t upper_bound ) {
 
-    // = tmp assert =
-    size_t check_counter = 0;
-    for ( auto i : sd.active ) if (i) check_counter++;
-    assert( check_counter == sd.active_counter );
-    // ==============
-
-    //std::cout << sd.active_counter << " " << c.size() << " " << 
-    //    (c.empty()? -1 : c.back())
-    //    << " " << best.size() << " " << upper_bound << std::endl;
+    std::cout << sd.active_counter << " " << c.size() << " " << 
+        " " << best.size() << " " << upper_bound << std::endl;
 
     auto stack_base = sd.get_stack_mark();
     bool removed_some_nodes;
+    int total_eliminated = 0;
     do {
         removed_some_nodes = false;
         // if Empty exit
@@ -192,11 +186,13 @@ Graph::maximum_clique_rec( SearchData &sd, Clique c, Clique best,
                     (c.size() - best.size() + chromatic_number_approx) ) {
                 sd.push_node(i);
                 removed_some_nodes = true;
+                total_eliminated++;
             }
         }
 
     } while ( removed_some_nodes );
 
+    cout << "total elimination " << total_eliminated << endl;
     // get a maximum degrees vertex
     vector<Graph::node_t> sorted(nodes,0);
     get_sorted_node(sorted);
@@ -255,7 +251,7 @@ Graph::get_approximate_coloring(Graph::SearchData &g) {
 
     Graph::color_t k = 0;
     for ( int uncolored = nodes-1; uncolored >= 0; uncolored-- ) {
-        Graph::node_t &v = sorted[uncolored];
+        const auto &v = sorted[uncolored];
         if ( ! g.active[v] ) continue;
 
         auto color = g.avail[v].select_min();
@@ -288,7 +284,7 @@ Graph::get_approximate_coloring(vector<Graph::color_t> &colors) {
     for(size_t v = 0; v < nodes; v++) h.insert(v);
 
     // si può migliorare con clique approx
-    size_t total_color = get_approximate_clique().size();
+    size_t total_color = 1;
     while ( ! h.empty() ) {
 
         size_t v = h.pop_max();

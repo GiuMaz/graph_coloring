@@ -87,7 +87,7 @@ private:
     }
 
     bool is_greater(size_t lpos, size_t rpos) {
-        return avail[value[lpos]].size() > avail[value[rpos]].size() ||
+        return avail[value[lpos]].size() < avail[value[rpos]].size() ||
             (avail[value[lpos]].size() == avail[value[rpos]].size() &&
              degrees[value[lpos]] > degrees[value[rpos]]);
     }
